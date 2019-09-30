@@ -6,7 +6,7 @@ module.exports.CompanyManager = class CompanyManager {
     }
     insertCompany(subdomain) {
         const company = new Company(subdomain);
-        await this.repository.save(company);
+        this.repository.save(company);
     }
     getCompanyById(id) {
         return this.repository.findById(id);

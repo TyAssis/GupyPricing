@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 
-const { calculatePricingData } = require('../gupyPricing.js');
-const { printHtml } = require('../output/printer.js');
+const { calculatePricingData } = require('../gupyPricing');
+const { printHtml } = require('../output/printer');
 const getCompanyDTO = require('../dto/getCompanyDTO');
 const getJobsDTO = require('../dto/getJobsDTO');
-const getCompanyJobsDTO = require('../dto/getCompanyJobsDTO');
+const getCompanyJobsDTO = require('../dto/getCompanyDTO');
 
 const company = require('../components/company/controllers/company-controller');
 
