@@ -1,0 +1,30 @@
+{
+  "name": "GupyPricing",
+  "version": "1.0.0",
+  "description": "A mentoring project, just for praticing",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TyAssis/GupyPricing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TyAssis/GupyPricing/issues"
+  },
+  "homepage": "https://github.com/TyAssis/GupyPricing#readme",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.1",
+    "mongoose": "^5.7.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}
