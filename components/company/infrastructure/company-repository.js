@@ -1,17 +1,14 @@
 const gupyDB = require('../../../database/connect-gupy');
-const { Company } = require('../domain/company');
+const Company = require('../domain/company');
 
 module.exports.CompanyRepository = class CompanyRepository {
     constructor(model) {
         this.model = model;
     }
 
-    async save(company) {
-        if(!company.id) {
-            const obj = new this.model(company.subdomain);
-            await obj.save();
-        }
-        await model.findByIdAndUpdate(company.id, company, {new: true});
+    async save() {
+        const newCompany = this.model;
+        return await newCompany.save();
     }
 
     async findAll() {

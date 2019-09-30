@@ -1,18 +1,16 @@
-const Company = require('../domain/company');
-
 module.exports.CompanyManager = class CompanyManager {
     constructor(repository) {
         this.repository = repository;
     }
-    insertCompany(subdomain) {
-        const company = new Company(subdomain);
-        this.repository.save(company);
+    async insertCompany() {
+        const newCompany = this.repository.save();
+        return await newCompany; 
     }
     getCompanyById(id) {
         return this.repository.findById(id);
     }
-    listCompanies() {
-        return this.repository.findAll();
+    async listCompanies() {
+        return await this.repository.findAll();
     }
     deleteCompanyById(id) {
 

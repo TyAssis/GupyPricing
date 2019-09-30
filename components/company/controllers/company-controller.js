@@ -15,8 +15,11 @@ router.get('/:id', (req, res) => {
     res.json({});
 });
 
-router.post('/', (req, res) => {
-    res.json({});
+router.post('/', async (req, res) => {
+    const repository = new CompanyRepository(CompanyModel(req.body));
+    const manager = new CompanyManager(repository);
+    const newCompany = await manager.insertCompany();
+    res.json(newCompany);
 });
 
 router.put('/:id', (req, res) => {
