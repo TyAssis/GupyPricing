@@ -22,6 +22,7 @@ describe('job routes tests', () => {
     });
 
     it('GET /job/:id should return a job schichibukai effective job', () => {
+        const objectId = '5d93ce4083fa1f75abf8c206';
         chai.request(app)
             .get(`/job/${objectId}`)
             .then(res => {

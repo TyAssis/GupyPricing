@@ -1,16 +1,14 @@
 const gupyDB = require('../../../database/connect-gupy');
 const Job = require('../domain/job');
+const JobModel = require('../../job/infrastructure/job-model');
 
 module.exports.JobRepository = class JobRepository {
-    constructor(model) {
-        this.model = model;
-    }
 
-    async save() {
-        const newJob = this.model;
-        const job = await newJob.save();
-        // Q: salvei, depois passei pelo check do domain??! :thinking-face
-        return new Job(job.name, job.type);
+    async save(job) {
+        const domainJob = new Job(job.name, job.type);
+        const newJob = new JobModel(domainJob);
+        const savedJob = await newJob.save();
+        return domainJob;
     }
     
     async findById(id) {

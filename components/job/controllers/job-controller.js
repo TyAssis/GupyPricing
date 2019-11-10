@@ -1,7 +1,8 @@
+const app = require('../../../app/app');
+
 const router = require('express').Router();
 
 const { JobManager } = require('../managers/job-manager');
-const JobModel = require('../infrastructure/job-model');
 const { JobRepository } = require('../infrastructure/job-repository');
 
 router.get('/', async (req, res) => {
@@ -16,10 +17,12 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const repository = new JobRepository(JobModel(req.body));
+    const repository = new JobRepository();
     const manager = new JobManager(repository);
-    const newJob = await manager.insertJob();
+    const newJob = await manager.insertJob(req.body);
     res.json(newJob);
 });
+
+app.use('/job', router);
 
 module.exports = router;

@@ -4,9 +4,9 @@ module.exports.JobManager = class JobManager {
         this.repository = repository;
     }
 
-    async insertJob() {
-        const newJob = this.repository.save();
-        return await newJob; 
+    async insertJob(job) {
+        const newJob = this.repository.save(job);
+        return await newJob;
     }
     
     async getJobById(id) {

@@ -2,9 +2,8 @@ module.exports.CompanyManager = class CompanyManager {
     constructor(repository) {
         this.repository = repository;
     }
-    async insertCompany() {
-        const newCompany = this.repository.save();
-        return await newCompany; 
+    async insertCompany(company) {
+        return this.repository.save(company); 
     }
     getCompanyById(id) {
         return this.repository.findById(id);
